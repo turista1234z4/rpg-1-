@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>busca de itens
+    </title>
+    
+</head>
+<body>
+    <h1>Baú raro</h1>
+    <img src="imgs/Baú.gif" alt="">
+    <p>Itens raros costumam ser mais resistentes e alguns possuem atributos específicos</p>
+    <div id="imagem-container"></div>
+    <button onclick="sortearImagem()">ABRIR</button>
+  
+  </body>
+  
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  #imagem-container {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  img{
+      max-width: 300px;
+  }
+  </style>
+  
+  
+  <script>
+  
+  
+  var imagens = [
+    
+    {
+      src: 'imgs/HOT SUMMER.png',
+      chance: 0.16 // Chance de 10% para a imagem 1
+    },
+    {
+      src: 'imgs/LANÇA COM.png',
+      chance: 0.16 // Chance de 10% para a imagem 1
+    },
+    {
+      src: 'imgs/RAIZ COM.png',
+      chance: 0.16 // Chance de 10% para a imagem 1
+    },
+    {
+      src: 'imgs/ARC COMUM.png',
+      chance: 0.16 // Chance de 10% para a imagem 1
+    },
+    {
+      src: 'imgs/CAJ COM.png',
+      chance: 0.16 // Chance de 20% para a imagem 2
+    },
+    // ...
+    // Adicione os outros objetos de imagem aqui com suas respectivas chances
+    // ...
+    {
+      src: 'imgs/ESC COMUM.png',
+      chance: 0.16 // Chance de 5% para a imagem 50
+    },
+  
+  ];
+  
+  function sortearImagem() {
+    var random = Math.random();
+    var soma = 0;
+  
+    for (var i = 0; i < imagens.length; i++) {
+      soma += imagens[i].chance;
+  
+      if (random < soma) {
+        exibirImagem(imagens[i].src);
+        break;
+      }
+    }
+  }
+  
+  function exibirImagem(src) {
+    var container = document.getElementById('imagem-container');
+    container.innerHTML = '';
+    var img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Imagem sorteada';
+    container.appendChild(img);
+  }
+  </script>
+  
+
+</html>
